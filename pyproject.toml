@@ -1,0 +1,43 @@
+[project]
+name = "fastapi-restapi"
+version = "0.1.0"
+description = ""
+requires-python = ">=3.14"
+dependencies = [
+    "fastapi>=0.115",
+    "uvicorn[standard]>=0.34",
+]
+
+[dependency-groups]
+dev = [
+    "httpx>=0.28.1",
+    "pyright>=1.1",
+    "pytest>=9.0.2",
+    "pytest-cov>=6.1",
+    "ruff>=0.11",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-v --cov=app --cov-report=term-missing --no-header"
+
+[tool.coverage.run]
+source = ["app"]
+
+[tool.coverage.report]
+show_missing = true
+fail_under = 70
+
+[tool.ruff]
+target-version = "py314"
+line-length = 88
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM", "RUF"]
+
+[tool.ruff.lint.per-file-ignores]
+"app/presentation/api/v1/endpoints/*.py" = ["B008"]
+
+[tool.pyright]
+pythonVersion = "3.14"
+typeCheckingMode = "standard"

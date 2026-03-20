@@ -1,0 +1,16 @@
+{
+  "language": "ja",
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "case \"$CLAUDE_TOOL_ARG_FILE_PATH\" in *.py) cd /workspaces/fastapi-restapi && uv run ruff check --fix . && uv run ruff format . && uv run pyright ;; esac"
+          }
+        ]
+      }
+    ]
+  }
+}
