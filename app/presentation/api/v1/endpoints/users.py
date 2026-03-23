@@ -20,10 +20,11 @@ from app.presentation.schemas.user_schemas import (
     UserResponse,
     UserUpdateRequest,
 )
+
 router = APIRouter(prefix="/users", tags=["users"])
+
+
 @router.post("/", response_model=UserResponse, status_code=status.HTTP_201_CREATED)
-
-
 def create_user(
     body: UserCreateRequest,
     use_case: CreateUserUseCase = Depends(get_create_user_use_case),

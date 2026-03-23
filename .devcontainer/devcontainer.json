@@ -1,6 +1,8 @@
 {
   "name": "fastapi-restapi",
-  "image": "mcr.microsoft.com/devcontainers/python:3.14",
+  "dockerComposeFile": "docker-compose.yml",
+  "service": "app",
+  "workspaceFolder": "/workspaces/fastapi-restapi",
   "postCreateCommand": "pip install uv && uv sync",
   "customizations": {
     "vscode": {
@@ -10,7 +12,8 @@
       "extensions": [
         "ms-python.python",
         "ms-python.vscode-pylance",
-        "charliermarsh.ruff"
+        "charliermarsh.ruff",
+        "anthropic.claude-code"
       ]
     }
   },

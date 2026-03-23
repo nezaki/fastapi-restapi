@@ -5,6 +5,8 @@ description = ""
 requires-python = ">=3.14"
 dependencies = [
     "fastapi>=0.115",
+    "pymysql>=1.1",
+    "sqlalchemy>=2.0",
     "uvicorn[standard]>=0.34",
 ]
 
@@ -37,6 +39,7 @@ select = ["E", "F", "I", "UP", "B", "SIM", "RUF"]
 
 [tool.ruff.lint.per-file-ignores]
 "app/presentation/api/v1/endpoints/*.py" = ["B008"]
+"app/presentation/api/dependencies.py" = ["B008"]
 
 [tool.pyright]
 pythonVersion = "3.14"
